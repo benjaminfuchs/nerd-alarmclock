@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     python-blinkt \
     python-simplejson \
     python-fourletterphat \
+    python-flask \
     mpg123
 
 ARG user=nerdc
