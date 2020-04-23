@@ -21,6 +21,8 @@ import locale
 import configparser
 import threading
 
+sys.path.append(os.path.abspath('/usr/local/lib/python3.5/site-packages'))
+sys.path.append(os.path.abspath('/usr/local/lib/python3.5/site-packages/nsonic/ext'))
 from nclock import Settings, LedControllerThread, PumpControllerThread, SensorsControllerThread, TankController
 
 # --- helper class for logging to syslog/stderr   --------------------------
