@@ -71,8 +71,8 @@ def init(parser):
     settings.log = Msg(settings.get_value('GLOBAL', 'debug', 0))
     settings.load()
 
-
-    settings.tankController = TankController.TankController(settings)
+    if settings.get_value('TANK','active','0') != '0':
+        settings.tankController = TankController.TankController(settings)
 
     settings.set('state', 'starting')
     return settings
@@ -85,8 +85,9 @@ def start_threads(settings):
 
     threads = []
 
-    ledControllerThread = LedControllerThread.LedControllerThread(settings)
-    threads.append(ledControllerThread)
+    if settings.get_value('LED','active','0') != '0':
+        ledControllerThread = LedControllerThread.LedControllerThread(settings)
+        threads.append(ledControllerThread)
 
     pumpControllerThread = PumpControllerThread.PumpControllerThread(settings)
     threads.append(pumpControllerThread)
